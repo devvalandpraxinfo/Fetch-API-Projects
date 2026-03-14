@@ -3,3 +3,35 @@
     left: 0;
     box-sizing: border-box;
 }
+#meals{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.meal{
+    /* z-index: 0; */
+    position: relative;
+}
+.meal-items{
+    width: 18rem;
+}
+.meal-items:hover{
+    opacity: .3;
+    cursor: pointer;
+}
+#meal-name{
+    opacity: 1;
+    position: absolute;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 99%;
+    color: white;
+}
+
+/* #meal-name{
+    display: none;
+} */
+
