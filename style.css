@@ -29,9 +29,12 @@
     text-align: center;
     width: 99%;
     color: white;
+    height: 99%;
+    border-radius: 100%;
 }
 
-/* #meal-name{
-    display: none;
-} */
+#meal-name:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 

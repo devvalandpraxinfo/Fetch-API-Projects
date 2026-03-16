@@ -5,7 +5,7 @@ const meals = document.getElementById("meals");
 const oneMeal = document.getElementById("one-meal");
 
 // console.log(`${meals} ${oneMeal}`);
-// console.log(heading);
+// console.log(oneMeal);
 
 // call FETCH API
 function findMeal(e) {
@@ -42,4 +42,38 @@ function findMeal(e) {
       search.value = " "
   }
 }
+
+// get Meal Id
+function getSingleItemId(mealId) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+    .then((res)=> res.json())
+    .then((data)=>{
+      console.log(data);
+      
+    })  
+}
+
 submit.addEventListener("click", findMeal);
+
+// Single Meal
+meals.addEventListener("click", (e)=> {
+  const mealInfo = e.composedPath()
+  .find((single_item) =>{
+  // console.log(single_item);
+
+  if (single_item.classList) {
+    return single_item.classList.contains('meal-info')
+  } else {
+    return false;
+  }
+  
+  })
+  // console.log(mealInfo);
+  if(mealInfo){
+    const mealId = mealInfo.getAttribute('data-mealId')
+    console.log(mealId);
+    getSingleItemId(mealId)
+    
+  }
+  
+})
