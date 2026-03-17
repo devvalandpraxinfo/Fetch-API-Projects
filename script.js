@@ -91,15 +91,30 @@ function addMealToDOM(meal) {
 
         <h2 class="meal-subhead">-: Instructions :-</h2>
         <p> ${meal.strInstructions} </p>
-    </div>
-
-    
-
+    </div> 
   </div>
   `;
 }
 
+// get Random Meal
+function getRandomMeal (params) {
+  // clear reused data and heading
+  meals.innerHTML = ''
+  heading.innerHTML = ''
+  
+  fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+  .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    const meal = data.meals[0]
+    // console.log(meal);
+    
+    addMealToDOM(meal);
+  })
+}
+
 submit.addEventListener("click", findMeal);
+random.addEventListener("click", getRandomMeal);
 
 // Single Meal
 meals.addEventListener("click", (e) => {
